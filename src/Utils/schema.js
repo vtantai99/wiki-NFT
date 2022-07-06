@@ -1,0 +1,1 @@
+export const schemaRequired = (name) => `${name} can not be bank.`

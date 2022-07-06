@@ -1,31 +1,33 @@
 import React from 'react'
-import { Image, Input } from 'antd'
+import { Input } from 'antd'
 import { useController, useFormContext } from 'react-hook-form'
 import styled from 'styled-components'
 import { FormItemStyled } from './styled'
-import { SEARCH_ICON } from 'Assets'
 
 const WrapperLabel = styled.div`
   width: 100%;
   font-size: 13px;
 `
 
-const FormInput = ({ label, name, rules, defaultValue = '', wrapperProps, ...rest }) => {
+const FormInput = ({ label, name, rules, defaultValue = '', wrapperProps, type = '', ...rest }) => {
   const { control } = useFormContext()
-  const { field: { onChange, value }, fieldState: { error } } = useController({ name, control, rules, defaultValue })
+  const {
+    field: { onChange, value },
+    fieldState: { error }
+  } = useController({ name, control, rules, defaultValue })
 
   return (
     <FormItemStyled
       {...wrapperProps}
       label={label && <WrapperLabel>{label}</WrapperLabel>}
-      validateStatus={(error) ? 'error' : ''}
+      validateStatus={error ? 'error' : ''}
       help={error?.message}
     >
-      <Input
-        onChange={onChange}
-        value={value}
-        {...rest}
-      />
+      {type === 'password' ? (
+        <Input.Password onChange={onChange} value={value} {...rest} />
+      ) : (
+        <Input onChange={onChange} value={value} {...rest} />
+      )}
     </FormItemStyled>
   )
 }

@@ -8,12 +8,14 @@ import { checkNetwork } from './store/actions'
 
 import reducer from './store/reducer'
 import LoadingScreen from 'Modules/loading'
-import WikiCollection from 'Modules/wiki_collection'
 
 //screen
 const HomeScreen = lazy(() => import('Modules/home'))
+const WikiCollection = lazy(() => import('Modules/wiki_collection'))
 const AboutScreen = lazy(() => import('Modules/about'))
 const CollectionDetailScreen = lazy(() => import('Modules/collection_detail'))
+const SignUp = lazy(() => import('Modules/sign_up'))
+const SignIn = lazy(() => import('Modules/sign_in'))
 
 export default function AppRoutes({ isOnline = true }) {
   // useInjectReducer({ key: 'globalStore', reducer })
@@ -27,10 +29,12 @@ export default function AppRoutes({ isOnline = true }) {
     <Suspense fallback={<LoadingScreen />}>
       <Switch>
         <CustomRoute exact path="/loading" component={LoadingScreen} />
-        {/* <PublicRoute exact path="/" component={HomeScreen} /> */}
         <PublicRoute exact path="/" component={WikiCollection} />
+        <PublicRoute exact path="/home" component={HomeScreen} />
         <PublicRoute exact path="/about-us" component={AboutScreen} />
         <PublicRoute exact path="/collection-detail" component={CollectionDetailScreen} />
+        <PublicRoute exact path="/sign-up" component={SignUp} />
+        <PublicRoute exact path="/sign-in" component={SignIn} />
       </Switch>
     </Suspense>
   )

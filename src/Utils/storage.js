@@ -1,8 +1,5 @@
 export const STORAGE = {
-    LANGUAGE: 'LANGUAGE',
-    USER_TOKEN: 'USER_TOKEN',
-    META_DATA: 'META_DATA',
-    WORKSPACE_ID: 'WORKSPACE_ID'
+    TOKEN: 'TOKEN'
 }
 
 export function getLocalStorage(key) {

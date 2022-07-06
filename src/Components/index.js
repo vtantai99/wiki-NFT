@@ -5,6 +5,7 @@ import PrivateRoute from './route/privateRoute'
 import CustomRoute from './route/customRoute'
 import StrictRoute from './route/strictRoute'
 import BoxError from "./box-error"
+import BoxEdit from "./box-edit"
 import Image from './image'
 import Header from './header'
 import { LinkIcon, LinkNormal } from './link'
@@ -20,6 +21,7 @@ export * from './form'
 
 export {
     ErrorBoundary,
+    BoxEdit,
     // text
     TextPrimary,
     TextCategory,

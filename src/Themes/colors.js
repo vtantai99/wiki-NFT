@@ -38,6 +38,8 @@ export const Colors = {
     bg_green_dark: '#BDCF30',
     bg_grey_low: '#DADADA',
     bg_grey_light: '#F2F2F2',
+    bg_black_grey: '#303B39',
+    bg_black_low: '#242626',
     // color for text
     text_primary: '#292929',
     text_secondary: '#838383',
