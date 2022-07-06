@@ -10,6 +10,7 @@ const Wrapper = styled.p`
   font-size: ${({ fontSize }) => getFontSize(fontSize) || '20px'};
   max-width: ${({ maxWidth }) => maxWidth || '100%'};
   line-height: ${({ lineHeight }) => lineHeight || '22px'};
+  word-break: break-word;
   padding: 0;
   margin: 0;
   margin-bottom: ${({ marginBottom }) => `${marginBottom}px` || 0};

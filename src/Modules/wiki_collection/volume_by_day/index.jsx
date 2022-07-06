@@ -31,7 +31,7 @@ const VolumeByDay = () => {
           </div>
         </div>
         <div className="content">
-          <BarChart width={330} height={200} data={data}>
+          <BarChart width={330} height={150} data={data}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
             <YAxis />

@@ -15,3 +15,5 @@ export const SUCCESS = (actionType) => `${actionType}_SUCCESS`
    */
 
 export const FAILURE = (actionType) => `${actionType}_FAILED`
+
+export const CHANGE_SUCCESS = (name) => `Update ${name} successful`
