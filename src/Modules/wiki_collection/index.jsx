@@ -7,9 +7,12 @@ import Avatar from './avatar'
 import ClaimProject from './claim_project'
 import CollectionDes from './collection_des'
 import FloorPrice from './floor_price'
+import NotableHolder from './notable_holders'
 import NumberOfOwner from './number_of_owners'
 import PriceEta from './price_eta'
+import RoadMap from './roadmap'
 import { ContentTop } from './styled'
+import Tags from './tags'
 import VolumeByDay from './volume_by_day'
 
 const WikiCollection = () => {
@@ -32,8 +35,11 @@ const WikiCollection = () => {
             </div>
             <PriceEta />
             <CollectionDes />
+            <Tags />
           </div>
         </ContentTop>
+        <NotableHolder />
+        <RoadMap />
       </Container>
     </HomeLayout>
   )

@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 10px 20px;
     .logo__company {
         padding: 25px 32px;
     }
@@ -72,6 +73,9 @@ export const Right = styled.div`
     width: 100%;
     font-size: 20px;
     position: relative;
+    button {
+        margin-left: 10px;
+    }
     .partner-link {
         position: relative;
         &:after {

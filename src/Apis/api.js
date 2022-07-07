@@ -115,7 +115,7 @@ class AxiosClient {
   }
 
   async getExistTokenOnLocalStorage() {
-    const userToken = await getLocalStorage(STORAGE.USER_TOKEN)
+    const userToken = await getLocalStorage(STORAGE.TOKEN)
     if (userToken) {
       this.setHeaderToken(userToken)
     }

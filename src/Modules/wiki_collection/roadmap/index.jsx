@@ -1,11 +1,11 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import { BoxEdit, FormInput, FormTextArea, FormUploadImage, TextNormal } from 'Components'
+import { BoxEdit, FormTextArea, TextNormal } from 'Components'
 import { useWikiCollect } from 'Hooks'
 import React, { useEffect, useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { Schema } from './schema'
 
-const CollectionDes = () => {
+const RoadMap = () => {
   const form = useForm({
     resolver: yupResolver(Schema('collectDes'))
   })
@@ -13,15 +13,15 @@ const CollectionDes = () => {
 
   const [isEdit, setIsEdit] = useState(false)
 
-  const { collectDes, changeCollectDesAction } = useWikiCollect()
-  const { data, isSubmitting } = collectDes
+  const { roadMap, changeRoadMapAction } = useWikiCollect()
+  const { data, isSubmitting } = roadMap
 
   const onSubmit = (formData) => {
-    const { collectDes } = formData
-    changeCollectDesAction({ data: collectDes, name: 'collection description', callback: () => setIsEdit(false) })
+    const { roadMap } = formData
+    changeRoadMapAction({ data: roadMap, name: 'road map', callback: () => setIsEdit(false) })
   }
 
-  const setInitData = () => setValue('collectDes', data)
+  const setInitData = () => setValue('roadMap', data)
 
   useEffect(() => {
     if (data) {
@@ -37,7 +37,7 @@ const CollectionDes = () => {
     <BoxEdit
       marginTop={20}
       padding="5px 10px"
-      minHeight={250}
+      minHeight={100}
       isSubmitting={isSubmitting}
       isEdit={isEdit}
       onSubmit={handleSubmit(onSubmit)}
@@ -45,17 +45,18 @@ const CollectionDes = () => {
       onClose={onClose}
       onOpenForm={onOpenForm}
     >
+      <TextNormal fontWeight="fw_700">Roadmap:</TextNormal>
       {isEdit ? (
         <FormProvider {...form}>
           <form>
-            <FormTextArea name="collectDes" rows={6} />
+            <FormTextArea name="roadMap" rows={6} />
           </form>
         </FormProvider>
       ) : (
-        <TextNormal style={{ textAlign: 'center' }}>{data}</TextNormal>
+        <TextNormal>{data}</TextNormal>
       )}
     </BoxEdit>
   )
 }
 
-export default CollectionDes
+export default RoadMap

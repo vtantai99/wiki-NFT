@@ -1,4 +1,5 @@
-import React from 'react'
+/* eslint-disable react/prop-types */
+import React, { useCallback, useEffect, useState } from 'react'
 import { Input } from 'antd'
 import { useController, useFormContext } from 'react-hook-form'
 import styled from 'styled-components'
@@ -9,27 +10,37 @@ const WrapperLabel = styled.div`
   font-size: 13px;
 `
 
-const FormInput = ({ label, name, rules, defaultValue = '', wrapperProps, type = '', ...rest }) => {
+const FormTextArea = ({
+  label,
+  name,
+  rules,
+  defaultValue = '',
+  wrapperProps,
+  total,
+  showTextCount = true,
+  ...rest
+}) => {
   const { control } = useFormContext()
   const {
     field: { onChange, value },
     fieldState: { error }
   } = useController({ name, control, rules, defaultValue })
 
+  const handleChange = (e) => {
+    const val = e.target.value
+    onChange(val)
+  }
+
   return (
     <FormItemStyled
       {...wrapperProps}
       label={label && <WrapperLabel>{label}</WrapperLabel>}
-      validateStatus={error ? 'error' : ''}
       help={error?.message}
+      validateStatus={error ? 'error' : ''}
     >
-      {type === 'password' ? (
-        <Input.Password onChange={onChange} value={value} {...rest} />
-      ) : (
-        <Input onChange={onChange} value={value} {...rest} />
-      )}
+      <Input.TextArea onChange={handleChange} value={value} {...rest} />
     </FormItemStyled>
   )
 }
 
-export default FormInput
+export default FormTextArea

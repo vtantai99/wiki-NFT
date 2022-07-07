@@ -1,11 +1,11 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import { BoxEdit, FormInput, FormTextArea, FormUploadImage, TextNormal } from 'Components'
+import { BoxEdit, FormInput, FormTextArea, TextNormal } from 'Components'
 import { useWikiCollect } from 'Hooks'
 import React, { useEffect, useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { Schema } from './schema'
 
-const CollectionDes = () => {
+const Tags = () => {
   const form = useForm({
     resolver: yupResolver(Schema('collectDes'))
   })
@@ -13,15 +13,15 @@ const CollectionDes = () => {
 
   const [isEdit, setIsEdit] = useState(false)
 
-  const { collectDes, changeCollectDesAction } = useWikiCollect()
-  const { data, isSubmitting } = collectDes
+  const { tags, changeTagsAction } = useWikiCollect()
+  const { data, isSubmitting } = tags
 
   const onSubmit = (formData) => {
-    const { collectDes } = formData
-    changeCollectDesAction({ data: collectDes, name: 'collection description', callback: () => setIsEdit(false) })
+    const { tags } = formData
+    changeTagsAction({ data: tags, name: 'tags', callback: () => setIsEdit(false) })
   }
 
-  const setInitData = () => setValue('collectDes', data)
+  const setInitData = () => setValue('tags', data)
 
   useEffect(() => {
     if (data) {
@@ -37,7 +37,7 @@ const CollectionDes = () => {
     <BoxEdit
       marginTop={20}
       padding="5px 10px"
-      minHeight={250}
+      minHeight={70}
       isSubmitting={isSubmitting}
       isEdit={isEdit}
       onSubmit={handleSubmit(onSubmit)}
@@ -48,7 +48,7 @@ const CollectionDes = () => {
       {isEdit ? (
         <FormProvider {...form}>
           <form>
-            <FormTextArea name="collectDes" rows={6} />
+            <FormTextArea name="tags" rows={6} />
           </form>
         </FormProvider>
       ) : (
@@ -58,4 +58,4 @@ const CollectionDes = () => {
   )
 }
 
-export default CollectionDes
+export default Tags
