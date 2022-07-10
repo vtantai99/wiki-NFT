@@ -5,7 +5,7 @@ import classNames from 'classnames'
 const Div = styled.div`
   max-width: 1440px;
   width: 100%;
-  margin: 0 auto;
+  margin: 20px auto;
   padding-left: 16px;
   padding-right: 16px;
 `

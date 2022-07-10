@@ -40,6 +40,8 @@ export const Colors = {
     bg_grey_light: '#F2F2F2',
     bg_black_grey: '#303B39',
     bg_black_low: '#242626',
+    bg_items: '#EEF4F8',
+    bg_item_team: '#F1F2F2',
     // color for text
     text_primary: '#292929',
     text_secondary: '#838383',
@@ -52,6 +54,8 @@ export const Colors = {
     text_grey: '#4E4B4B',
     title_grey: '#837d7d',
     text_red: '#D92626',
+    text_blue_dark: '#25225E',
+    text_grey_low: '#EFEFEF',
 
     // btn color
     primary_btn: '#00C271',

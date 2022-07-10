@@ -14,7 +14,10 @@ export const fontSize = {
     size_26: '26px',
     size_28: '28px',
     size_32: '32px',
-    size_40: '40px'
+    size_40: '40px',
+    size_44: '44px',
+    size_50: '50px',
+    size_64: '64px',
 }
 
 export const fontWeight = {

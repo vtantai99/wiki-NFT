@@ -27,7 +27,7 @@ const SignUp = () =>
       message: 'Sign up success !'
     })
     setIsLoading(false)
-  }, 2000)
+  }, 1000)
   
 
   const onRegister = async (formData) =>
@@ -48,9 +48,9 @@ const SignUp = () =>
           message: 'Account already exist !'
         })
       } else {
-        users.push(formData)
-        console.log('Boy ~ file: index.jsx ~ line 52 ~ users', users)
-        setLocalStorage(STORAGE.USERS, JSON.stringify(users))
+        const newUser = [...users]
+        newUser.push(formData)
+        setLocalStorage(STORAGE.USERS, JSON.stringify(newUser))
         signUpSuccess()
       }
     }

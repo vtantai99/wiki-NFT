@@ -63,7 +63,9 @@ export const Wrapper = styled.div`
 `
 
 export const Left = styled.div`
-    width: 40%;
+    width: 10%;
+    height: 100%;
+    cursor: pointer;
 `
 
 export const Right = styled.div`

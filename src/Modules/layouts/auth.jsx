@@ -2,7 +2,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Header } from '../../Components'
-// import Footer from '../../components/footer'
 import { MEDIA_WIDTHS } from '../../Themes'
 
 const Wrapper = styled.div`
@@ -25,13 +24,12 @@ const Body = styled.div`
   }
 `
 
-const AuthLayout = ({ children, isFooter = true, bgImage }) => (
+const AuthLayout = ({ children, bgImage }) => (
   <Wrapper bgImage={bgImage}>
     <Header />
     <Body>
       {children}
     </Body>
-    {/* {isFooter && <Footer />} */}
   </Wrapper>
 )
 

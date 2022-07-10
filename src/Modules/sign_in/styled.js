@@ -28,7 +28,8 @@ export const BoxContent = styled.div`
       width: 100%;
       margin-top: 20px;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
     }
   }
 `

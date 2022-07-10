@@ -6,7 +6,7 @@ import JSONBig from 'json-bigint'
 import { notification } from 'antd'
 
 import { isEmpty, assign } from 'lodash'
-import { STORAGE, getLocalStorage, IGNORE_ERROR_MESSAGES } from 'Utils'
+import { STORAGE, getLocalStorage } from 'Utils'
 import { store } from 'index'
 
 const singletonEnforcer = Symbol()
@@ -65,21 +65,11 @@ class AxiosClient {
           }
           switch (status) {
             case 400:
-              if (IGNORE_ERROR_MESSAGES.includes(data.error)) {
-                store.dispatch({ type: data.error })
-              } else if (data.error && data.error.match(ERROR_MESSAGE_SERAKU_REGEX)) {
-                notification.error({
-                  message: 'common:error',
-                  description: data.error,
-                  duration: 2
-                })
-              } else {
-                notification.error({
-                  message: 'common:error',
-                  description: `error_message:${data.error}`,
-                  duration: 2
-                })
-              }
+              notification.error({
+                message: 'common:error',
+                description: `error_message:${data.error}`,
+                duration: 2
+              })
               break
             case 500:
               break

@@ -14,6 +14,8 @@ const Wrapper = styled.p`
   padding: 0;
   margin: 0;
   margin-bottom: ${({ marginBottom }) => `${marginBottom}px` || 0};
+  margin-top: ${({ marginTop }) => `${marginTop}px` || 0};
+  text-align: ${({ textCenter }) => textCenter && 'center'};
   @media screen and (max-width: ${MEDIA_WIDTHS.upToLarge}px) {
     font-size: ${({ fontSize }) => getFontSize(fontSize, MEDIA_WIDTHS.upToLarge) || '14px'};
   }
@@ -56,6 +58,8 @@ export const TextNormal = ({
   maxWidth = '100%',
   lineHeight,
   marginBottom,
+  marginTop,
+  textCenter = false,
   ...rest
 }) => (
   <Wrapper
@@ -65,6 +69,8 @@ export const TextNormal = ({
     fontSize={fontSize}
     fontWeight={fontWeight}
     marginBottom={marginBottom}
+    marginTop={marginTop}
+    textCenter={textCenter}
     {...rest}
   />
 )

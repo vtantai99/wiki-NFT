@@ -3,8 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useHistory } from 'react-router-dom'
 
-import { Header, Footer } from 'Components'
-import { BG_WELCOME } from 'Assets'
+import { Header } from 'Components'
 
 const Wrapper = styled.div`
   padding: 0;
@@ -25,7 +24,7 @@ const Body = styled.div`
   width: 100%;
   height: 100%;
 `
-const HomeLayout = ({ children, isFooter = true, bgImage }) => {
+const HomeLayout = ({ children, bgImage }) => {
   const history = useHistory()
   const { pathname } = history.location
 
@@ -33,7 +32,6 @@ const HomeLayout = ({ children, isFooter = true, bgImage }) => {
     <Wrapper bgImage={bgImage}>
       <Header />
       <Body pathname={pathname}>{children}</Body>
-      {isFooter && <Footer />}
     </Wrapper>
   )
 }

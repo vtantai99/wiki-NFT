@@ -4,7 +4,7 @@ import { Avatar, Button, Col, notification, Row } from 'antd'
 import { FormInput, TextNormal } from 'Components'
 import React from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
-import { useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { getLocalStorage, setLocalStorage, STORAGE } from 'Utils'
 import { signInSchema } from './schema'
 import { BoxContent, Wrapper } from './styled'
@@ -69,7 +69,8 @@ const SignIn = () => {
                 </Col>
               </Row>
               <div className="button__submit">
-                <Button onClick={handleSubmit(onRegister)}>Register</Button>
+                <Button onClick={handleSubmit(onRegister)}>Login</Button>
+                <Link to="/sign-up">Do you have account? Register now</Link>
               </div>
             </form>
           </FormProvider>

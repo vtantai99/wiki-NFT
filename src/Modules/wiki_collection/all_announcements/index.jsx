@@ -2,6 +2,7 @@ import { TwitterOutlined } from '@ant-design/icons'
 import { Avatar } from 'antd'
 import { TextNormal } from 'Components'
 import React from 'react'
+import { IMAGE_DEFAULT } from '../store/text'
 import { Box } from './styled'
 
 const AllAnnouncement = () => {
@@ -14,7 +15,7 @@ const AllAnnouncement = () => {
         <div className="announce__item">
           <div className="announce__item__header">
             <div className="announce__item__header--left">
-              <Avatar src="https://joeschmoe.io/api/v1/random" />
+              <Avatar src={IMAGE_DEFAULT} />
               <div className="name">
                 <TextNormal color="white" fontSize="size_18" fontWeight="fw_700">
                   masoncrowe#8888

@@ -6,7 +6,6 @@ import styled from 'styled-components'
 import { PlusOutlined } from '@ant-design/icons'
 import axios from 'axios'
 
-import { getBase64V2 } from 'Utils'
 import { getS3PresinedUrl } from 'Apis'
 
 const FILE_SIZE = 10 // 10mb
@@ -58,18 +57,6 @@ const FormUploadImage = ({
   const handleChange = useCallback(({ fileList }) => {
     setFiles(fileList)
   }, [])
-
-  const handlePreview = async (file) => {
-    if (!file.url && !file.preview) {
-      file.preview = await getBase64V2(file.originFileObj)
-    }
-
-    const previewFile = file.url || file.preview
-
-    let fileName = previewFile.substr(0, previewFile.lastIndexOf('_'))
-    fileName = fileName.substring(fileName.lastIndexOf('/') + 1)
-    fileName = decodeURIComponent(fileName)
-  }
 
   const uploadImage = useCallback(async (options) => {
     const { onSuccess, onError, file } = options
@@ -136,7 +123,6 @@ const FormUploadImage = ({
         <Upload
           accept="image/png,image/jpg,image/jpeg,image/gif"
           onChange={handleChange}
-          onPreview={handlePreview}
           customRequest={uploadImage}
           onRemove={() => {
             onChange('')
